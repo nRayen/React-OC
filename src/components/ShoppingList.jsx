@@ -13,29 +13,29 @@ plantList.forEach((plant) => {
 
 export function ShoppingList() {
   return (
-    <>
-        <ul>
+    <section>
+        <ul className='lmj-category'>
             {categories.map((cat) => {
                 return <li key={cat}>{cat}</li>
             })}
         </ul>
         
-        <ul className='.lmj-plant-list'>
-            {plantList.map((plant) => {
+        <ul className='lmj-plant-list'>
+            {plantList.map(({id, cover , name, water, light}) => {
                 return (
 
                     <PlantItem 
-                        name={plant.name}
-                        id={plant.id}
-                        light={plant.light}
-                        water={plant.water}
-                        cover={plant.cover}
+                        key={id}
+                        name={name}
+                        light={light}
+                        water={water}
+                        cover={cover}
                     />
 
                 )
             })}
         </ul>
-    </>
+    </section>
   )
 }
 

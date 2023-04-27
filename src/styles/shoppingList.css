@@ -3,5 +3,11 @@
 	padding: 32px;
 	display: flex;
 	flex-wrap: wrap;
-	max-width: 800px;
+	justify-content: center;
+	gap: 15px;
+}
+
+.lmj-category {
+	margin: 0 auto;
+	width: fit-content;
 }

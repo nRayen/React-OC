@@ -11,4 +11,27 @@ body {
     font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
       monospace;
   }
+
+  #root {
+    display: grid;
+    grid-template-areas: 
+    'b b b b b'
+    'm m m m m'
+    'f f f f f';
+
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  }
+
+  main {
+    grid-area: m;
+    display: flex;
+  }
+
+  .lmj-banner {
+    grid-area: b;
+  }
+
+  .lmj-footer {
+    grid-area: f;
+  }
   

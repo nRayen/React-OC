@@ -8,8 +8,10 @@ export function App() {
   return (
     <>
       <Banner />
-      <Cart />
-      <ShoppingList />
+      <main>
+        <Cart />
+        <ShoppingList />
+      </main>
       <Footer />
     </>
   )

@@ -8,7 +8,7 @@ export function PlantItem({ name , cover , id , light , water}) {
 
 
   return (
-    <li className='lmj-plant-item' key={id}>
+    <li className='lmj-plant-item'>
         <img src={cover} alt={`cover ${name}`} className='lmj-plant-item-cover' />
         {name}
         <div>
@@ -24,12 +24,31 @@ export function PlantItem({ name , cover , id , light , water}) {
 
 function CareScale({ scaleValue, careType }) {
     const range = [1, 2, 3]
-    
     const scaleType = careType === 'light' ? sun : water
+
+    const handleClick = () => {
+        let value = ""
+        switch (scaleValue) {
+            case 1:
+                value = "peu"
+                break;
+            
+            case 2:
+                value = "modérement"
+                break
+            case 3:
+                value = "beaucoup"
+                break;
+        }
+
+        const type = careType === 'light' ? 'de lumière' : "d'arrosage"
+
+        alert(`Cette plante requiert ${value} ${type}`)
+    }   
 
     return (
         <div>
-            {range.map((rangeElem) => scaleValue >= rangeElem ? <span key={rangeElem.toString()}><img src={scaleType} /></span> : null
+            {range.map((rangeElem) => scaleValue >= rangeElem ? <span key={rangeElem.toString()} onClick={() => handleClick()}><img src={scaleType} /></span> : null
             )}
         </div>
     )
