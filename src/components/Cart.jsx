@@ -30,9 +30,16 @@ export function Cart(props) {
 
             <>
               <ul>
-                {cart.map(({name , amount, price}) => {
-                  return <li key={name}> {amount}x {name} : {amount * price}€</li>
-                })}
+                {cart.map(({name , amount, price}) => (
+                  <li key={name}>
+                    <span>{amount}x {name} : {amount * price}€</span>
+                    <div className="amount">
+                      <button>+</button>
+                      <span>{amount}</span>
+                      <button>-</button>
+                    </div>
+                  </li>
+                ))}
               </ul>
 
               <h3>Total : {cart.reduce((acc , item) => {

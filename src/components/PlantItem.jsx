@@ -10,11 +10,12 @@ export function PlantItem({ name , cover , id , light , water, price, cart, upda
         const addedPlant = cart.find(plant => plant.name == name)
 
         addedPlant ? (
-            updateCart([...filteredCart, {...addedPlant, amount : addedPlant.amount + 1}])
+            addedPlant.amount += 1,
+            filteredCart.splice(cart.findIndex(plant => plant.name == name),0,addedPlant),
+            updateCart([...filteredCart])
 
 
-            ) : ( // Si la plante est déja dans le panier
-
+            ) : ( // Si n'est pas encore dans le panier
 
                 updateCart([...cart, {
                     name,
