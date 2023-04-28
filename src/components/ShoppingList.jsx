@@ -11,7 +11,8 @@ plantList.forEach((plant) => {
 })
 
 
-export function ShoppingList() {
+export function ShoppingList({cart, updateCart}) {
+
   return (
     <section>
         <ul className='lmj-category'>
@@ -21,16 +22,19 @@ export function ShoppingList() {
         </ul>
         
         <ul className='lmj-plant-list'>
-            {plantList.map(({id, cover , name, water, light}) => {
+            {plantList.map(({id, cover , name, water, light, price}) => {
                 return (
+                        <PlantItem 
+                            key={id}
+                            name={name}
+                            light={light}
+                            water={water}
+                            cover={cover}
+                            price={price}
 
-                    <PlantItem 
-                        key={id}
-                        name={name}
-                        light={light}
-                        water={water}
-                        cover={cover}
-                    />
+                            cart={cart}
+                            updateCart={updateCart}
+                        />
 
                 )
             })}

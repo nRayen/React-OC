@@ -4,7 +4,7 @@
     background-color: #31b572;
     justify-content: flex-start;
     position: relative;
-    width: 20%;
+    width: 30%;
 }
 
 .lmj-cart .close-btn {
@@ -42,3 +42,8 @@
 .empty-cart:hover {
     border: solid 1px white;
 }
+
+.lmj-cart ul {
+    list-style-type: none;
+    padding: 0;
+}   

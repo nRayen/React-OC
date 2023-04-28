@@ -3,9 +3,26 @@ import '../styles/plantItem.css'
 import sun from '../assets/sun.svg'
 import water from '../assets/water.svg'
 
-export function PlantItem({ name , cover , id , light , water}) {
+export function PlantItem({ name , cover , id , light , water, price, cart, updateCart}) {
+
+    const addItem = () => {
+        let filteredCart = cart.filter(plant => plant.name != name)
+        const addedPlant = cart.find(plant => plant.name == name)
+
+        addedPlant ? (
+            updateCart([...filteredCart, {...addedPlant, amount : addedPlant.amount + 1}])
 
 
+            ) : ( // Si la plante est déja dans le panier
+
+
+                updateCart([...cart, {
+                    name,
+                    price,
+                    amount : 1
+                }])
+            )
+    }
 
   return (
     <li className='lmj-plant-item'>
@@ -15,6 +32,7 @@ export function PlantItem({ name , cover , id , light , water}) {
             <CareScale careType={'water'} scaleValue={water}/>
             <CareScale careType={'light'} scaleValue={light}/>
         </div>
+        <button onClick={() => {addItem()}}></button>
     </li>
   )
 }
