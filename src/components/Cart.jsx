@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
 import '../styles/cart.css'
 
-export function Cart(props) {
+export function Cart({cart , updateCart, addItem}) {
 
-  let cart = props.cart
-  let updateCart = props.updateCart
+  // let cart = props.cart
+  // let updateCart = props.updateCart
 
 
     const [isOpen, setIsOpen] = useState(false)
@@ -34,9 +34,9 @@ export function Cart(props) {
                   <li key={name}>
                     <span>{amount}x {name} : {amount * price}€</span>
                     <div className="amount">
-                      <button>+</button>
+                      <button onClick={()=>{addItem({name, price},"-")}}>-</button>
                       <span>{amount}</span>
-                      <button>-</button>
+                      <button onClick={()=>{addItem({name,price})}}>+</button>
                     </div>
                   </li>
                 ))}

@@ -3,27 +3,7 @@ import '../styles/plantItem.css'
 import sun from '../assets/sun.svg'
 import water from '../assets/water.svg'
 
-export function PlantItem({ name , cover , id , light , water, price, cart, updateCart}) {
-
-    const addItem = () => {
-        let filteredCart = cart.filter(plant => plant.name != name)
-        const addedPlant = cart.find(plant => plant.name == name)
-
-        addedPlant ? (
-            addedPlant.amount += 1,
-            filteredCart.splice(cart.findIndex(plant => plant.name == name),0,addedPlant),
-            updateCart([...filteredCart])
-
-
-            ) : ( // Si n'est pas encore dans le panier
-
-                updateCart([...cart, {
-                    name,
-                    price,
-                    amount : 1
-                }])
-            )
-    }
+export function PlantItem({ name , cover , id , light , water, price, cart, updateCart, addItem}) {
 
   return (
     <li className='lmj-plant-item'>
@@ -33,7 +13,7 @@ export function PlantItem({ name , cover , id , light , water, price, cart, upda
             <CareScale careType={'water'} scaleValue={water}/>
             <CareScale careType={'light'} scaleValue={light}/>
         </div>
-        <button onClick={() => {addItem()}}></button>
+        <button  onClick={()=> {addItem({name , price})}} >Ajouter</button>
     </li>
   )
 }
@@ -53,7 +33,7 @@ function CareScale({ scaleValue, careType }) {
                 break;
             
             case 2:
-                value = "modérement"
+                value = "une quantité modérée"
                 break
             case 3:
                 value = "beaucoup"
@@ -66,6 +46,7 @@ function CareScale({ scaleValue, careType }) {
     }   
 
     return (
+
         <div>
             {range.map((rangeElem) => scaleValue >= rangeElem ? <span key={rangeElem.toString()} onClick={() => handleClick()}><img src={scaleType} /></span> : null
             )}

@@ -11,7 +11,7 @@ plantList.forEach((plant) => {
 })
 
 
-export function ShoppingList({cart, updateCart}) {
+export function ShoppingList({cart, updateCart, addItem}) {
 
   return (
     <section>
@@ -34,6 +34,7 @@ export function ShoppingList({cart, updateCart}) {
 
                             cart={cart}
                             updateCart={updateCart}
+                            addItem={(add)=>{addItem(add)}}
                         />
 
                 )

@@ -12,3 +12,22 @@
 	flex-direction: column;
 	text-transform: capitalize;
 }
+
+.lmj-plant-item button {
+	background-color: #31b572;
+	border: none;
+	color: white;
+	width: fit-content;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 8px;
+	font-size: 18px;
+	border-radius: 15px;
+	align-self: flex-end;
+}
+
+
+.lmj-plant-item button:hover {
+	background-color: #00d26a;
+}
