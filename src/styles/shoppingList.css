@@ -11,3 +11,10 @@
 	margin: 0 auto;
 	width: fit-content;
 }
+
+section {
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	width: 100%;
+}

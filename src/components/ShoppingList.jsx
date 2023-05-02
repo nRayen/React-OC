@@ -1,28 +1,23 @@
-import React from 'react'
+import React, { useState } from 'react'
 import '../styles/shoppingList.css'
 import { plantList } from '../data/plantList'
 import { PlantItem } from './PlantItem'
+import { Categories } from './Categories'
 
-const categories = []
 
-
-plantList.forEach((plant) => {
-    categories.includes(plant.category)? null : categories.push(plant.category)
-})
 
 
 export function ShoppingList({cart, updateCart, addItem}) {
 
+  const [filter, setFilter] = useState("all")
+  let shownPlants =  filter == "all" ? plantList : plantList.filter((plant) => plant.category == filter)
+
   return (
     <section>
-        <ul className='lmj-category'>
-            {categories.map((cat) => {
-                return <li key={cat}>{cat}</li>
-            })}
-        </ul>
+        <Categories setFilter={setFilter} />
         
         <ul className='lmj-plant-list'>
-            {plantList.map(({id, cover , name, water, light, price}) => {
+            {shownPlants.map(({id, cover , name, water, light, price}) => {
                 return (
                         <PlantItem 
                             key={id}

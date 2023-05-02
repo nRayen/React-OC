@@ -1,0 +1,18 @@
+select {
+    border: #31b572 1px solid;
+    background-color: #31b572;
+    margin: 10px 20px 10px auto;
+    width: 250px;
+    height: 35px;
+    color: white;
+    font-size: 20px;
+    outline: none;
+}
+
+select option {
+    appearance: none;
+    box-shadow: none;
+    background-color: lightgreen;
+    height: 300px;
+    padding: 10px;
+}
