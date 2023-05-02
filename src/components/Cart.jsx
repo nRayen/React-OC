@@ -1,11 +1,7 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import '../styles/cart.css'
 
 export function Cart({cart , updateCart, addItem}) {
-
-  // let cart = props.cart
-  // let updateCart = props.updateCart
-
 
     const [isOpen, setIsOpen] = useState(false)
 
@@ -13,6 +9,13 @@ export function Cart({cart , updateCart, addItem}) {
       setIsOpen(!isOpen)
     }
 
+    let total = cart.reduce((acc , item) => {
+      return acc + (item.price * item.amount)
+      },0)
+
+      useEffect(()=> {  // Changer titre page avec le prix à chaque changement du total
+        document.title = total ?  `LMJ | ${total}€ d'achats` : "La Maison Jungle"
+      },[total])
 
   return isOpen	? (
 
@@ -42,9 +45,7 @@ export function Cart({cart , updateCart, addItem}) {
                 ))}
               </ul>
 
-              <h3>Total : {cart.reduce((acc , item) => {
-                return acc + (item.price * item.amount)
-                },0)}€</h3>
+              <h3>Total : {total}€</h3>
 
 
               <button className='empty-cart' onClick={() => {updateCart([])}}>Vider le panier</button>

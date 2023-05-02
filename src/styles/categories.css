@@ -12,7 +12,7 @@ select {
 select option {
     appearance: none;
     box-shadow: none;
-    background-color: lightgreen;
+    background-color: #00d26a;
     height: 300px;
     padding: 10px;
 }
