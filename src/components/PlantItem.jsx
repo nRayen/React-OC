@@ -8,6 +8,7 @@ export function PlantItem({ name , cover , id , light , water, price, cart, upda
   return (
     <li className='lmj-plant-item'>
         <img src={cover} alt={`cover ${name}`} className='lmj-plant-item-cover' />
+        <span className="price">{price}€</span>
         {name}
         <div>
             <CareScale careType={'water'} scaleValue={water}/>
