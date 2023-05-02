@@ -17,7 +17,7 @@ export const Categories = ({setFilter}) => {
 
   return (
     <select name="categories" id="categories" onChange={handleSelect}>
-        <option value="all">Tout</option>
+        <option value="">Tout</option>
         {categories.map((cat)=>{
             return <option key={cat} value={cat}>{toCapitalize(cat)}</option>
         })}

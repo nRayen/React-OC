@@ -9,8 +9,8 @@ import { Categories } from './Categories'
 
 export function ShoppingList({cart, updateCart, addItem}) {
 
-  const [filter, setFilter] = useState("all")
-  let shownPlants =  filter == "all" ? plantList : plantList.filter((plant) => plant.category == filter)
+  const [filter, setFilter] = useState("")
+  let shownPlants =  filter ? plantList.filter((plant) => plant.category == filter) : plantList
 
   return (
     <section>
